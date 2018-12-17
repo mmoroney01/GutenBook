@@ -31,6 +31,8 @@ class BooksController < ApplicationController
   	end
 
   	book = Book.new(title: title, author: author, release_date: release_date, language: language)
+
+    p book
   end
 
   def show

@@ -401,3 +401,70 @@ Processing by IndexController#index as HTML
 Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:28:19 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 234ms (Views: 199.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:30:03 -0600
+Processing by IndexController#index as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `strftime' for "April 18, 2010 ":String
+Did you mean?  strip):
+  
+app/controllers/index_controller.rb:27:in `index'
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:30:39 -0600
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/controllers/index_controller.rb:27: unknown type of %string
+...date: release_date.strftime(%m/%d/%Y), language: language)
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/controllers/index_controller.rb:27: syntax error, unexpected end-of-input, expecting ')'
+...date: release_date.strftime(%m/%d/%Y), language: language)
+...                               ^):
+  
+app/controllers/index_controller.rb:27: unknown type of %string
+app/controllers/index_controller.rb:27: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:30:56 -0600
+Processing by IndexController#index as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `strftime' for "April 18, 2010 ":String
+Did you mean?  strip):
+  
+app/controllers/index_controller.rb:27:in `index'
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:31:43 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 71ms (Views: 18.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:31:52 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 51ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:32:04 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 35ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 14:32:19 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 33ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
