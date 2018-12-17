@@ -2,9 +2,8 @@ class BooksController < ApplicationController
   def create
   	#create a book object using data gleaned from txt file
 
-  	#the user (if there are users) will not use this?
-
     #params of open may need to be different depending on source of txt files
+
   	#maybe this should be a private method (get_book_attributes taking a txt file as an argument/returning a hash of book data to easily create a book object)
 
   	title = ""
@@ -13,8 +12,6 @@ class BooksController < ApplicationController
   	language = ""
     
     File.open("EurekaAProsePoem.txt").each do |line|
-  	  #iterates through each line in txt file, grabbing the data we will use to make a book object
-
   	  #some titles might be on multiple lines, how to account? come back to this
   	  if line.match(/^Title: /)
   	    title = line.gsub(/Title: /, "").gsub(/\n/, "")
@@ -37,7 +34,8 @@ class BooksController < ApplicationController
   end
 
   def show
-  	#display one book and its attributes
+    @book = Book.find(params[:id])
+
   	render "show"
   end
 end
