@@ -394,3 +394,10 @@ Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
 NameError (uninitialized constant IndexController::Book):
   
 app/controllers/index_controller.rb:43:in `index'
+Started GET "/" for 127.0.0.1 at 2018-12-17 13:36:55 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
