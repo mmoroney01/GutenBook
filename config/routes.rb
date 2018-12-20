@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root "index#index"
 
-  resources :books, only: [:create, :show]
+  resources :books, only: [:index, :create, :show]
 end
