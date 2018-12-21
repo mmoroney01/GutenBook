@@ -1,7 +1,7 @@
 <% @books.each do |book| %>
   <%= book.title %><br>
   <%= book.author %><br>
-  <%= book.release_date %><br>
+  <%= book.release_date.strftime("%m-%d-%Y") %><br>
   <%= book.language %><br>
-  <%= book.first_100_words %><br><br>
+  <%= book.first_100_words_after_three_star %><br><br>
 <% end %>

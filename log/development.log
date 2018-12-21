@@ -2472,3 +2472,1372 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 148ms (Views: 104.8ms | Searchkick: 20.5ms | ActiveRecord: 15.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:34:37 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 188ms (Views: 182.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:34:40 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 29.1ms)
+
+
+  
+ActionView::Template::Error (URL parameter 'page' is not supported):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092260933220'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:35:23 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:35:33 -0600
+  [1m[33mBook Search (202.8ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 367ms (Views: 39.3ms | Searchkick: 202.8ms | ActiveRecord: 4.4ms)
+
+
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:35:35 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (96.8ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 170ms (Views: 36.1ms | Searchkick: 96.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:35:40 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:36:25 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:36:27 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (URL parameter 'page' is not supported):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092122155000'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:37:09 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (URL parameter 'page' is not supported):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092263841940'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:37:27 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (URL parameter 'page' is not supported):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_47366553343220'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:37:45 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (URL parameter 'page' is not supported):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092224488500'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:38:07 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (URL parameter 'page' is not supported):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:38:44 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::NotFound ([404] {"error":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"},"status":404}):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:39:09 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (18.1ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error ([404] {"error":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"},"status":404}):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092263183900'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:39:34 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error ([404] {"error":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"},"status":404}):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092126189780'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:39:56 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::NotFound ([404] {"error":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":"books","index_uuid":"_na_","index":"books"},"status":404}):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:40:46 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (51.0ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+Completed 500 Internal Server Error in 61ms (Searchkick: 51.0ms | ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `records' for #<Searchkick::Results:0x007f7f3c43e8c0>):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:40:55 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (26.7ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `records' for #<Searchkick::Results:0x007f7f40ba6168>):
+    1: <% @books.records.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092261762980'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:41:10 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (40.6ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 95ms (Views: 38.7ms | Searchkick: 40.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:42:05 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (90.8ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+Completed 500 Internal Server Error in 102ms (Searchkick: 90.8ms | ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `type' for #<Searchkick::Results:0x007f7f449874c8>):
+  
+app/controllers/books_controller.rb:5:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:42:12 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (52.3ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 101ms (Views: 38.1ms | Searchkick: 52.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:43:20 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (32.8ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/views/books/index.html.erb:4: unknown type of %string
+... book.release_date.strftime(%d/%m/%y: %H:%M:%S %Z) );@output...
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/views/books/index.html.erb:4: syntax error, unexpected end-of-input, expecting ')'
+... book.release_date.strftime(%d/%m/%y: %H:%M:%S %Z) );@output...
+...                               ^):
+  
+app/views/books/index.html.erb:4: unknown type of %string
+app/views/books/index.html.erb:4: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:43:31 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (51.4ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/views/books/index.html.erb:4: unknown type of %string
+... book.release_date.strftime(%d/%m/%y) );@output_buffer.safe_...
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/views/books/index.html.erb:4: syntax error, unexpected end-of-input, expecting ')'
+... book.release_date.strftime(%d/%m/%y) );@output_buffer.safe_...
+...                               ^):
+  
+app/views/books/index.html.erb:4: unknown type of %string
+app/views/books/index.html.erb:4: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:43:43 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (92.8ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 7.8ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime() %><br>
+    5:   <%= book.language %><br>
+    6:   <%= book.first_100_words_after_three_star %><br><br>
+    7: <% end %>
+  
+app/views/books/index.html.erb:4:in `block in _app_views_books_index_html_erb__3794982515389099525_47366550124040'
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_47366550124040'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:43:52 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (49.6ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/views/books/index.html.erb:4: unknown type of %string
+... book.release_date.strftime(%d) );@output_buffer.safe_append...
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/views/books/index.html.erb:4: syntax error, unexpected end-of-input, expecting ')'
+... book.release_date.strftime(%d) );@output_buffer.safe_append...
+...                               ^):
+  
+app/views/books/index.html.erb:4: unknown type of %string
+app/views/books/index.html.erb:4: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:44:00 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (37.4ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 78ms (Views: 37.3ms | Searchkick: 37.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:44:23 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (34.6ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 65ms (Views: 24.3ms | Searchkick: 34.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:44:35 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (80.8ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 123ms (Views: 35.4ms | Searchkick: 80.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:45:01 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (23.7ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendered books/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 58ms (Views: 23.4ms | Searchkick: 23.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:45:37 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."text" = $1[0m  [["text", "the raven"]]
+  Rendered books/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "the raven"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE "books"."text" = $1):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092124624480'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:45:53 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (unknown keywords: text):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:46:25 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."text" = $1[0m  [["text", "the raven"]]
+  Rendered books/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "the raven"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE "books"."text" = $1):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092124890040'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:46:34 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."text" = $1 LIMIT $2[0m  [["text", "the raven"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "the raven"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT  "books".* FROM "books" WHERE "books"."text" = $1 LIMIT $2):
+  
+app/controllers/books_controller.rb:8:in `p'
+app/controllers/books_controller.rb:8:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:46:46 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."text" = $1 LIMIT $2[0m  [["text", "the raven"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "the raven"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT  "books".* FROM "books" WHERE "books"."text" = $1 LIMIT $2):
+  
+app/controllers/books_controller.rb:8:in `p'
+app/controllers/books_controller.rb:8:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:49:21 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (18.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:49:25 -0600
+  [1m[33mBook Import (3917.2ms)[0m  {"count":5}
+Completed 500 Internal Server Error in 4358ms (Searchkick: 3917.2ms | ActiveRecord: 20.7ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::Forbidden ([403] {"error":{"root_cause":[{"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"}],"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"},"status":403}):
+  
+app/controllers/books_controller.rb:3:in `index'
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:49:28 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (15.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  [1m[33mBook Import (2548.3ms)[0m  {"count":5}
+Completed 500 Internal Server Error in 3026ms (Searchkick: 2548.3ms | ActiveRecord: 15.7ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::Forbidden ([403] {"error":{"root_cause":[{"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"}],"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"},"status":403}):
+  
+app/controllers/books_controller.rb:3:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:50:25 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (12.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:50:28 -0600
+  [1m[33mBook Import (2579.3ms)[0m  {"count":5}
+Completed 500 Internal Server Error in 2958ms (Searchkick: 2579.3ms | ActiveRecord: 12.7ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::Forbidden ([403] {"error":{"root_cause":[{"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"}],"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"},"status":403}):
+  
+app/controllers/books_controller.rb:3:in `index'
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:50:30 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (42.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  [1m[33mBook Import (1984.1ms)[0m  {"count":5}
+Completed 500 Internal Server Error in 2507ms (Searchkick: 1984.1ms | ActiveRecord: 42.0ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::Forbidden ([403] {"error":{"root_cause":[{"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"}],"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"},"status":403}):
+  
+app/controllers/books_controller.rb:3:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:52:25 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[36mBook Load (44.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  [1m[33mBook Import (1994.5ms)[0m  {"count":5}
+Completed 500 Internal Server Error in 2417ms (Searchkick: 1994.5ms | ActiveRecord: 44.1ms)
+
+
+  
+Elasticsearch::Transport::Transport::Errors::Forbidden ([403] {"error":{"root_cause":[{"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"}],"type":"cluster_block_exception","reason":"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"},"status":403}):
+  
+app/controllers/books_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:52:54 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:52:56 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (70.1ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 124ms (Views: 19.2ms | Searchkick: 70.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:53:34 -0600
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...s[:query], fields: [:text] page: params[:page])
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:4: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/books_controller.rb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/books_controller.rb:4: syntax error, unexpected ')', expecting keyword_end
+Started GET "/books?utf8=%E2%9C%93&query=the+raven&commit=Search" for 127.0.0.1 at 2018-12-21 11:53:42 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"the raven", "commit"=>"Search"}
+  [1m[33mBook Search (17.5ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"match":{"text.analyzed":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"text.analyzed":{"query":"the raven","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"text.analyzed":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"text.analyzed":{"query":"the raven","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 3[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 57ms (Views: 14.5ms | Searchkick: 17.5ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=cancer&commit=Search" for 127.0.0.1 at 2018-12-21 11:53:51 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"cancer", "commit"=>"Search"}
+  [1m[33mBook Search (48.1ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"match":{"text.analyzed":{"query":"cancer","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"text.analyzed":{"query":"cancer","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"text.analyzed":{"query":"cancer","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"text.analyzed":{"query":"cancer","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (6.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (6, 4)[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 95ms (Views: 32.1ms | Searchkick: 48.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=ipod&commit=Search" for 127.0.0.1 at 2018-12-21 11:53:58 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"ipod", "commit"=>"Search"}
+  [1m[33mBook Search (44.4ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"match":{"text.analyzed":{"query":"ipod","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"text.analyzed":{"query":"ipod","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"text.analyzed":{"query":"ipod","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"text.analyzed":{"query":"ipod","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 108ms (Views: 55.4ms | Searchkick: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=quoth&commit=Search" for 127.0.0.1 at 2018-12-21 11:54:07 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"quoth", "commit"=>"Search"}
+  [1m[33mBook Search (14.7ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"match":{"text.analyzed":{"query":"quoth","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"text.analyzed":{"query":"quoth","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"text.analyzed":{"query":"quoth","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"text.analyzed":{"query":"quoth","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (9.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (3, 7, 8, 5)[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 90ms (Views: 50.5ms | Searchkick: 14.7ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 11:54:35 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (45.5ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"match":{"text.analyzed":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search"}}},{"match":{"text.analyzed":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2"}}},{"match":{"text.analyzed":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}},{"match":{"text.analyzed":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true}}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (12.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 8, 5)[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (57.1ms)
+Completed 200 OK in 133ms (Views: 69.5ms | Searchkick: 45.5ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 11:58:34 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (29.2ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"bool":{"must":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"filter":[{"terms":{"text":["influence"]}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (6.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 8, 5)[0m
+  Rendered books/index.html.erb within layouts/application (57.4ms)
+Completed 200 OK in 110ms (Views: 63.6ms | Searchkick: 29.2ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 11:58:37 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 82ms (Views: 81.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 11:58:39 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (46.1ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"bool":{"must":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"filter":[{"terms":{"text":["influence"]}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (12.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 8, 5)[0m
+  Rendered books/index.html.erb within layouts/application (57.1ms)
+Completed 200 OK in 123ms (Views: 60.0ms | Searchkick: 46.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:01:14 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (9.6ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"bool":{"must":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"filter":[{"terms":{"title":["influence"]}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 30ms (Views: 13.3ms | Searchkick: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=edgar+allan+poe&commit=Search" for 127.0.0.1 at 2018-12-21 12:01:20 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"edgar allan poe", "commit"=>"Search"}
+  [1m[33mBook Search (90.9ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"bool":{"must":{"dis_max":{"queries":[{"multi_match":{"query":"edgar allan poe","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar allan poe","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar allan poe","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar allan poe","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"filter":[{"terms":{"title":["edgar allan poe"]}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 122ms (Views: 27.5ms | Searchkick: 90.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=edgar+allan+poe&commit=Search" for 127.0.0.1 at 2018-12-21 12:01:35 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"edgar allan poe", "commit"=>"Search"}
+  [1m[33mBook Search (24.1ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"bool":{"must":{"dis_max":{"queries":[{"multi_match":{"query":"edgar allan poe","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar allan poe","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar allan poe","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar allan poe","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"filter":[{"term":{"title":"edgar allan poe"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 47ms (Views: 17.1ms | Searchkick: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=edgar+allan+poe&commit=Search" for 127.0.0.1 at 2018-12-21 12:03:26 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"edgar allan poe", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092190148160'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:03:32 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 65ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=&commit=Search" for 127.0.0.1 at 2018-12-21 12:03:33 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (47.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered books/index.html.erb within layouts/application (146.3ms)
+Completed 200 OK in 195ms (Views: 116.0ms | ActiveRecord: 52.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:08:47 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:08:49 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (29.3ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+Completed 500 Internal Server Error in 207ms (Searchkick: 29.3ms | ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `text' for #<BooksController:0x007f7f38623b08>
+Did you mean?  test):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:09:33 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (14.3ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+Completed 500 Internal Server Error in 22ms (Searchkick: 14.3ms | ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `<<' for #<Searchkick::Results:0x007f7f44890448>):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:09:41 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (17.6ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text contains 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (PG::SyntaxError: ERROR:  syntax error at or near "contains"
+LINE 1: SELECT "books".* FROM "books" WHERE (text contains 'influenc...
+                                                  ^
+: SELECT "books".* FROM "books" WHERE (text contains 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092295690280'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:10:08 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (15.7ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text contains 'influence')[0m
+Completed 500 Internal Server Error in 21ms (Searchkick: 15.7ms | ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::SyntaxError: ERROR:  syntax error at or near "contains"
+LINE 1: SELECT "books".* FROM "books" WHERE (text contains 'influenc...
+                                                  ^
+: SELECT "books".* FROM "books" WHERE (text contains 'influence')):
+  
+app/controllers/books_controller.rb:8:in `index'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:10:32 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:10:34 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (40.7ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text contains 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (PG::SyntaxError: ERROR:  syntax error at or near "contains"
+LINE 1: SELECT "books".* FROM "books" WHERE (text contains 'influenc...
+                                                  ^
+: SELECT "books".* FROM "books" WHERE (text contains 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092293597000'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:10:44 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text contains 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (PG::SyntaxError: ERROR:  syntax error at or near "contains"
+LINE 1: SELECT "books".* FROM "books" WHERE (text contains 'influenc...
+                                                  ^
+: SELECT "books".* FROM "books" WHERE (text contains 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092193505400'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:10:47 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 74ms (Views: 72.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:10:49 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (5.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text contains 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.6ms)
+
+
+  
+ActionView::Template::Error (PG::SyntaxError: ERROR:  syntax error at or near "contains"
+LINE 1: SELECT "books".* FROM "books" WHERE (text contains 'influenc...
+                                                  ^
+: SELECT "books".* FROM "books" WHERE (text contains 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092294181700'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:12:08 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (influence = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column "influence" does not exist
+LINE 1: SELECT "books".* FROM "books" WHERE (influence = ANY (text))
+                                             ^
+: SELECT "books".* FROM "books" WHERE (influence = ANY (text))):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092188692540'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:12:32 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (ANY (text) = influence)[0m
+  Rendered books/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (PG::SyntaxError: ERROR:  syntax error at or near "ANY"
+LINE 1: SELECT "books".* FROM "books" WHERE (ANY (text) = influence)
+                                             ^
+: SELECT "books".* FROM "books" WHERE (ANY (text) = influence)):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092294176900'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:14:05 -0600
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+      @books = Book.where("text contains @>ARRAY[?]" params[:query])
+                                                           ^
+/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:6: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/books_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/books_controller.rb:6: syntax error, unexpected ')', expecting keyword_end
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:14:19 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text contains @>ARRAY['influence'])[0m
+  Rendered books/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (PG::SyntaxError: ERROR:  syntax error at or near "contains"
+LINE 1: SELECT "books".* FROM "books" WHERE (text contains @>ARRAY['...
+                                                  ^
+: SELECT "books".* FROM "books" WHERE (text contains @>ARRAY['influence'])):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092122452740'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:16:05 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."text" = $1[0m  [["text", "influence"]]
+  Rendered books/index.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "influence"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE "books"."text" = $1):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092192114960'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:16:14 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."text" = $1[0m  [["text", "influence"]]
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "influence"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE "books"."text" = $1):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092293647280'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:16:33 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (16.6ms)[0m  [1m[34mSELECT  "books".* FROM "books" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered books/index.html.erb within layouts/application (138.6ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 17.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<ActiveRecord::QueryMethods::WhereChain:0x007f7f308810b0>):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092125862180'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:18:32 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (influence = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column "influence" does not exist
+LINE 1: SELECT "books".* FROM "books" WHERE (influence = ANY (text))
+                                             ^
+: SELECT "books".* FROM "books" WHERE (influence = ANY (text))):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092292808960'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:21:38 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=dga&commit=Search" for 127.0.0.1 at 2018-12-21 12:21:41 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"dga", "commit"=>"Search"}
+  [1m[33mBook Search (19.2ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"dga","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"dga","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"dga","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"dga","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 63ms (Views: 22.9ms | Searchkick: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:21:46 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=edgar&commit=Search" for 127.0.0.1 at 2018-12-21 12:21:48 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"edgar", "commit"=>"Search"}
+  [1m[33mBook Search (41.6ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"edgar","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"edgar","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (14.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 3, 8, 5, 6, 4, 1, 2)[0m
+  Rendered books/index.html.erb within layouts/application (82.6ms)
+Completed 200 OK in 161ms (Views: 79.7ms | Searchkick: 41.6ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:22:21 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:23:24 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:23:26 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (influence = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column "influence" does not exist
+LINE 1: SELECT "books".* FROM "books" WHERE (influence = ANY (text))
+                                             ^
+: SELECT "books".* FROM "books" WHERE (influence = ANY (text))):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092123673500'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:23:56 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (id IN ('influence'))[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  invalid input syntax for integer: "influence"
+LINE 1: SELECT "books".* FROM "books" WHERE (id IN ('influence'))
+                                                    ^
+: SELECT "books".* FROM "books" WHERE (id IN ('influence'))):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092294988520'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:25:56 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text = 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "influence"
+LINE 1: SELECT "books".* FROM "books" WHERE (text = 'influence')
+                                                    ^
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE (text = 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_47366552337020'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:26:32 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text = 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "influence"
+LINE 1: SELECT "books".* FROM "books" WHERE (text = 'influence')
+                                                    ^
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE (text = 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092272927080'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:26:35 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 71ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:26:37 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (6.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (text = 'influence')[0m
+  Rendered books/index.html.erb within layouts/application (12.9ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 6.6ms)
+
+
+  
+ActionView::Template::Error (PG::InvalidTextRepresentation: ERROR:  malformed array literal: "influence"
+LINE 1: SELECT "books".* FROM "books" WHERE (text = 'influence')
+                                                    ^
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT "books".* FROM "books" WHERE (text = 'influence')):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092292570580'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:26:42 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:30:16 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:30:20 -0600
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:8: syntax error, unexpected '=', expecting ')'
+      @books = Book.where("#{params[:query]}" = ANY (text))
+                                               ^
+/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:8: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/books_controller.rb:8: syntax error, unexpected '=', expecting ')'
+app/controllers/books_controller.rb:8: syntax error, unexpected ')', expecting keyword_end
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:31:14 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (16.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('influence' = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (88.1ms)
+Completed 200 OK in 110ms (Views: 86.1ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:32:50 -0600
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:4: syntax error, unexpected '}', expecting =>
+...params[:query]}' = ANY (text)"} page: params[:page])
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:4: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/books_controller.rb:4: syntax error, unexpected '}', expecting =>
+app/controllers/books_controller.rb:4: syntax error, unexpected ')', expecting keyword_end
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:32:58 -0600
+  
+SyntaxError (/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:4: syntax error, unexpected '}', expecting =>
+...params[:query]}' = ANY (text)"}, page: params[:page])
+...                               ^
+/home/mmoroney/Desktop/GutenBook/app/controllers/books_controller.rb:4: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/books_controller.rb:4: syntax error, unexpected '}', expecting =>
+app/controllers/books_controller.rb:4: syntax error, unexpected ')', expecting keyword_end
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:33:41 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (19.9ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (17.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('influence' = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (85.7ms)
+Completed 200 OK in 126ms (Views: 79.3ms | Searchkick: 19.9ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:34:27 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (12.3ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (8.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 8, 5)[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 86ms (Views: 46.0ms | Searchkick: 12.3ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:34:54 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (13.7ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  [1m[36mBook Load (8.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 8, 5)[0m
+  [1m[36mBook Load (15.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('influence' = ANY (text))[0m
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (94.7ms)
+Completed 200 OK in 161ms (Views: 106.2ms | Searchkick: 13.7ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:37:55 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (You have passed String object to #or. Pass an ActiveRecord::Relation object instead.):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:39:31 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/books_controller.rb:6:in `index'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:39:58 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092260979180'
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:40:02 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 63ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:40:03 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092228370920'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:40:15 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('influence' = ANY (title))[0m
+  Rendered books/index.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (PG::WrongObjectType: ERROR:  op ANY/ALL (array) requires array on right side
+LINE 1: SELECT "books".* FROM "books" WHERE ('influence' = ANY (titl...
+                                                         ^
+: SELECT "books".* FROM "books" WHERE ('influence' = ANY (title))):
+    1: <% @books.each do |book| %>
+    2:   <%= book.title %><br>
+    3:   <%= book.author %><br>
+    4:   <%= book.release_date.strftime("%m-%d-%Y") %><br>
+  
+app/views/books/index.html.erb:1:in `_app_views_books_index_html_erb__3794982515389099525_70092268711120'
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:40:26 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (13.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('influence' = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (69.3ms)
+Completed 200 OK in 87ms (Views: 65.5ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:40:49 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (12.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('influence' = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (77.0ms)
+Completed 200 OK in 96ms (Views: 78.9ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:41:58 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:42:03 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=influence&commit=Search" for 127.0.0.1 at 2018-12-21 12:42:06 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"influence", "commit"=>"Search"}
+  [1m[33mBook Search (26.3ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"influence","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (8.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 8, 5)[0m
+  Rendered books/index.html.erb within layouts/application (105.7ms)
+Completed 200 OK in 189ms (Views: 122.3ms | Searchkick: 26.3ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=poe&commit=Search" for 127.0.0.1 at 2018-12-21 12:42:15 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"poe", "commit"=>"Search"}
+  [1m[33mBook Search (22.2ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"poe","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"poe","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"poe","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"poe","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (13.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 3, 8, 5, 6, 4, 1, 2)[0m
+  Rendered books/index.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 113ms (Views: 72.6ms | Searchkick: 22.2ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-21 12:42:24 -0600
+Processing by IndexController#index as HTML
+  Rendering index/index.html.erb within layouts/application
+  Rendered index/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=poe&commit=Search" for 127.0.0.1 at 2018-12-21 12:42:26 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"poe", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (7.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('poe' = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 61ms (Views: 36.8ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=gutenberg&commit=Search" for 127.0.0.1 at 2018-12-21 12:42:31 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"gutenberg", "commit"=>"Search"}
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (7.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE ('gutenberg' = ANY (text))[0m
+  Rendered books/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 40ms (Views: 30.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/books?utf8=%E2%9C%93&query=gutenberg&commit=Search" for 127.0.0.1 at 2018-12-21 12:42:38 -0600
+Processing by BooksController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"gutenberg", "commit"=>"Search"}
+  [1m[33mBook Search (15.1ms)[0m  curl http://localhost:9200/books_development/_search?pretty -H 'Content-Type: application/json' -d '{"query":{"dis_max":{"queries":[{"multi_match":{"query":"gutenberg","boost":10,"operator":"and","analyzer":"searchkick_search","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"gutenberg","boost":10,"operator":"and","analyzer":"searchkick_search2","fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"gutenberg","boost":1,"operator":"and","analyzer":"searchkick_search","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}},{"multi_match":{"query":"gutenberg","boost":1,"operator":"and","analyzer":"searchkick_search2","fuzziness":1,"prefix_length":0,"max_expansions":3,"fuzzy_transpositions":true,"fields":["*.analyzed"],"type":"best_fields"}}]}},"timeout":"11s","_source":false,"size":10000,"from":0}'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (10.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IN (7, 3, 6, 4, 8, 5)[0m
+  Rendered books/index.html.erb within layouts/application (83.4ms)
+Completed 200 OK in 119ms (Views: 86.8ms | Searchkick: 15.1ms | ActiveRecord: 12.5ms)
+
+
