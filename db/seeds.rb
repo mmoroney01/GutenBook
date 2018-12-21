@@ -6,13 +6,42 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+def book_attributes(txt)
+    title = ""
+    author = ""
+    release_date = ""
+    language = ""
+    text = []
 
-Book.create(title: "The Cask of Amontillado", author: "Edgar Allan Poe", release_date: "June 6, 2010", language: "English")
+    #params of open may need to be different depending on source of txt files
+    File.open(txt).each do |line|
+      if line.match(/^Title: /)
+        title = line.gsub(/Title: /, "").gsub(/\n/, "")
+      end
 
-Book.create(title: "Eureka: A Prose Poem", author: "Edgar A. Poe", release_date: "April 18, 2010", language: "English")
+      if line.match(/^Author: /)
+        author = line.gsub(/Author: /, "").gsub(/\n/, "")
+      end
 
-Book.create(title: "The Fall of the House of Usher", author: "Edgar Allan Poe", release_date: "June 1997", language: "English")
+      if line.match(/^Release Date: /)
+        release_date = line.gsub(/Release Date: /, "").gsub(/\WEBook #\d{1,}\W/, "").gsub(/\n/, "")
+      end
 
-Book.create(title: "The Masque of the Red Death", author: "Edgar Allan Poe", release_date: "June 6, 2010", language: "English")
+      if line.match(/^Language: /)
+        language = line.gsub(/Language: /, "").gsub(/\n/, "")
+      end
 
-Book.create(title: "The Raven", author: "Edgar Allan Poe", release_date: "June 6, 2010", language: "English")
+      line.split.each do |word|
+        text << word
+      end
+    end
+
+    return {title: title, author: author, release_date: release_date, language: language, text: text}
+  end
+
+txt = ["TheCaskOfAmontillado.txt", "TheFallOfTheHouseOfUsher.txt", "TheRaven.txt", "TheMasqueOfTheRedDeath.txt", "EurekaAProsePoem.txt"]
+
+txt.each do |txt|
+  book_hash = book_attributes(txt)
+  book = Book.create(book_hash)
+end
