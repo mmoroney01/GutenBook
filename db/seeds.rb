@@ -17,11 +17,11 @@ def book_attributes(txt)
     #params of open may need to be different depending on source of txt files
     File.open(txt).each do |line|
       if line.match(/^Title: /)
-        title = line.gsub(/Title: /, "").gsub(/\n/, "")
+        title = line.gsub(/Title: /, "").gsub(/\r\n/,'')
       end
 
       if line.match(/^Author: /)
-        author = line.gsub(/Author: /, "").gsub(/\n/, "")
+        author = line.gsub(/Author: /, "").gsub(/\r\n/,'')
       end
 
       if line.match(/^Release Date: /)
@@ -29,7 +29,7 @@ def book_attributes(txt)
       end
 
       if line.match(/^Language: /)
-        language = line.gsub(/Language: /, "").gsub(/\n/, "")
+        language = line.gsub(/Language: /, "").gsub(/\r\n/,'')
       end
 
       line.split.each do |word|
@@ -39,16 +39,16 @@ def book_attributes(txt)
           letters = word.split('')[0..-2].join
           char = word.split('')[-1]
 
-          searchable_text << letters
+          searchable_text << letters.downcase
           searchable_text << char
         elsif is_first_char_symbol?(word) == true
           letters = word.split('')[1..-1].join
           char = word.split('')[0]
 
-          searchable_text << letters
+          searchable_text << letters.downcase
           searchable_text << char
         else
-          searchable_text << word
+          searchable_text << word.downcase
         end
       end
     end
