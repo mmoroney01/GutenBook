@@ -11,7 +11,8 @@ def book_attributes(txt)
     author = ""
     release_date = ""
     language = ""
-    text = []
+    presentable_text = []
+    searchable_text = []
 
     #params of open may need to be different depending on source of txt files
     File.open(txt).each do |line|
@@ -32,12 +33,42 @@ def book_attributes(txt)
       end
 
       line.split.each do |word|
-        text << word
+        presentable_text << word
+
+        if is_last_char_symbol?(word) == true
+          letters = word.split('')[0..-2].join
+          char = word.split('')[-1]
+
+          searchable_text << letters
+          searchable_text << char
+        elsif is_first_char_symbol?(word) == true
+          letters = word.split('')[1..-1].join
+          char = word.split('')[0]
+
+          searchable_text << letters
+          searchable_text << char
+        else
+          searchable_text << word
+        end
       end
     end
 
-    return {title: title, author: author, release_date: release_date, language: language, text: text}
+    return {title: title, author: author, release_date: release_date, language: language, presentable_text: presentable_text, searchable_text: searchable_text}
+end
+
+def is_first_char_symbol?(word)
+  if word.split('').first.match(/\W/)
+    return true
   end
+  false
+end
+
+def is_last_char_symbol?(word)
+  if word.split('').last.match(/\W/)
+    return true
+  end
+  false
+end
 
 txt = ["TheCaskOfAmontillado.txt", "TheFallOfTheHouseOfUsher.txt", "TheRaven.txt", "TheMasqueOfTheRedDeath.txt", "EurekaAProsePoem.txt"]
 
