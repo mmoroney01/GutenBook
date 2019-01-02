@@ -1,5 +1,16 @@
 class Book < ApplicationRecord
-  searchkick match: :word_middle, searchable: [:searchable_text], word_middle: [:searchable_text]
+  searchkick searchable: [:title, :author, :searchable_text], word_middle: [:title, :author, :searchable_text]
+
+  def search_data
+    {
+      title: title,
+      author: author,
+      release_date: release_date,
+      language: language,
+      presentable_text: presentable_text,
+      searchable_text: searchable_text,
+    }
+  end
 
   validates :author, :release_date, :language, presence: true
   validates :title, :presentable_text, :searchable_text, uniqueness: true, presence: true
