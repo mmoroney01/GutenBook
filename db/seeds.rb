@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 def book_attributes(txt)
     title = ""
@@ -12,6 +5,7 @@ def book_attributes(txt)
     release_date = ""
     language = ""
     presentable_text = []
+    sample_text = ""
     searchable_text = []
 
     #params of open may need to be different depending on source of txt files
@@ -33,41 +27,24 @@ def book_attributes(txt)
       end
 
       line.split.each do |word|
+        #gets a string containing first 1000 words
+        if sample_text.split(" ").length < 1000
+          sample_text+=word+=" "
+        end
+
+        if line.match(/^Produced /) && sample_text.split(" ").length < 1000
+          sample_text = ""
+        end
+
+        #gets all text, unaltered
         presentable_text << word
 
-        if is_last_char_symbol?(word) == true
-          letters = word.split('')[0..-2].join
-          char = word.split('')[-1]
-
-          searchable_text << letters.downcase
-          searchable_text << char
-        elsif is_first_char_symbol?(word) == true
-          letters = word.split('')[1..-1].join
-          char = word.split('')[0]
-
-          searchable_text << letters.downcase
-          searchable_text << char
-        else
-          searchable_text << word.downcase
-        end
+        #gets all text minus non-word/number characters, useful for searching. May need to downcase all words as searchkick's default is to search for lowercase word?
+        searchable_text << word.gsub(/[^a-zA-Z\d]/, '')
       end
     end
 
-    return {title: title, author: author, release_date: release_date, language: language, presentable_text: presentable_text, searchable_text: searchable_text}
-end
-
-def is_first_char_symbol?(word)
-  if word.split('').first.match(/\W/)
-    return true
-  end
-  false
-end
-
-def is_last_char_symbol?(word)
-  if word.split('').last.match(/\W/)
-    return true
-  end
-  false
+    return {title: title, author: author, release_date: release_date, language: language, presentable_text: presentable_text, searchable_text: searchable_text, sample_text: sample_text}
 end
 
 txt = {"TheCaskOfAmontillado.txt" => "NoCover.jpg", "TheFallOfTheHouseOfUsher.txt" => "NoCover.jpg", "TheRaven.txt" => "TheRaven.jpg", "TheMasqueOfTheRedDeath.txt" => "NoCover.jpg", "EurekaAProsePoem.txt" => "NoCover.jpg"}
