@@ -1,7 +1,8 @@
 <% @books.each do |book| %>
+  <%= image_tag book.cover_art %><br>
   <%= book.title %><br>
   <%= book.author %><br>
   <%= book.release_date.strftime("%m-%d-%Y") %><br>
   <%= book.language %><br>
-  <%= book.first_100_words_after_three_star %><br><br>
+  <%= book.first_100_words_after_three_star %><br><br><br>
 <% end %>
