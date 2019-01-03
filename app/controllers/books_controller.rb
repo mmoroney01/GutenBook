@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   def index
     Book.reindex
     if params[:query].present?
-      @books = Book.search(params[:query], fields: [:title, :author, :searchable_text], match: :word_middle, page: params[:page])
+      @books = Book.search(params[:query], fields: [:title, :author, :searchable_text], match: :word, page: params[:page])
     else
       @books = Book.all.page params[:page]
     end
