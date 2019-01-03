@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+#book-info {
+  display:inline-block;
+}
+
+#cover-art-and-book-info {
+  float:left;
+  text-align:center;
+  width:33%;
+}
+
+#cover-art-and-text-scroll-bar-and-book-info {
+  margin-top:3%;
+}
+
+#text-scroll-bar {
+  float:left;
+  height:370px;
+  margin-bottom:4%;
+  overflow-y:scroll;
+  width:67%;
+}
+
+#author {
+  font-size:19px;
+}
+
+#contribution-date {
+  font-size:13px;
+}
+
+#title {
+  font-size:19px;
+}
