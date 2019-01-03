@@ -70,9 +70,10 @@ def is_last_char_symbol?(word)
   false
 end
 
-txt = ["TheCaskOfAmontillado.txt", "TheFallOfTheHouseOfUsher.txt", "TheRaven.txt", "TheMasqueOfTheRedDeath.txt", "EurekaAProsePoem.txt"]
+txt = {"TheCaskOfAmontillado.txt" => "NoCover.jpg", "TheFallOfTheHouseOfUsher.txt" => "NoCover.jpg", "TheRaven.txt" => "TheRaven.jpg", "TheMasqueOfTheRedDeath.txt" => "NoCover.jpg", "EurekaAProsePoem.txt" => "NoCover.jpg"}
 
-txt.each do |txt|
+txt.each do |txt, img|
   book_hash = book_attributes(txt)
   book = Book.create(book_hash)
+  book.cover_art.attach(io: File.open(img), filename: img.to_s, content_type: "image/jpg")
 end
