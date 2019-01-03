@@ -1,8 +1,15 @@
+
 <% @books.each do |book| %>
-  <%= image_tag book.cover_art %><br>
-  <%= book.title %><br>
-  <%= book.author %><br>
-  <%= book.release_date.strftime("%m-%d-%Y") %><br>
-  <%= book.language %><br>
-  <%= book.first_100_words_after_three_star %><br><br><br>
+  <div id="cover-art-and-text-scroll-bar-and-book-info">
+    <div id="cover-art-and-book-info">
+      <div id="cover-art"><%= image_tag book.cover_art %></div>
+      <div id="book-info">
+        <div id="title"><%= book.title %></div>
+        <div id="author"><%= book.author %></div>
+        <div id="contribution-date"><%= "Contributed on " + book.release_date.strftime("%m-%d-%Y").to_s %></div><br>
+        <div id="kindle-download-button"><button type="button">Kindle Download</button></div>
+      </div>
+    </div>
+    <div id="text-scroll-bar"><%= book.first_1000_words %></div>
+  </div>
 <% end %>
