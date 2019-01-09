@@ -1,11 +1,36 @@
 
 <h1>GutenBook</h1>
 
-<%= form_tag books_path, method: :get do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search" %>
+<!-- <div id="books-search-bar">
+  <%= form_tag books_path, method: :get do %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search" %>
 
-  <% if params[:query].present? %>
-  <%= link_to "clear", books_path %>
+    <% if params[:query].present? %>
+    <%= link_to "clear", books_path %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+ -->
+
+<!-- <div id="books-search-bar">
+  <%= form_with url: books_path, method: "get" do |f| %>
+    <%= f.text_field(:query, id: "book-search") %>
+    <%= f.submit "Search" %>
+
+    <% if params[:query].present? %>
+    <%= link_to "clear", books_path %>
+    <% end %>
+  <% end %>
+</div>
+ -->
+
+<%-# form_with (above) defaults to data-remote: true which should render the associated js.erb file. It's not working so for now will use the below form which does work. -%>
+
+<form action="/books" method="get" data-remote="true">
+  <input type="text" name="query" id="book-search">
+  <button type="submit">Search</button>
+</form>
+
+<div id="search-results-append">
+</div>

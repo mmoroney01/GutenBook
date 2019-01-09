@@ -33,6 +33,7 @@ gem "elasticsearch-model"
 gem "searchkick"
 gem "kaminari"
 gem "bootsnap", '~> 1.1.2'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
