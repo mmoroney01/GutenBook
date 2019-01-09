@@ -34,6 +34,7 @@ gem "searchkick"
 gem "kaminari"
 gem "bootsnap", '~> 1.1.2'
 gem 'jquery-rails'
+gem 'responders', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
