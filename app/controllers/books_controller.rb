@@ -20,4 +20,9 @@ class BooksController < ApplicationController
   def show
     render "show"
   end
+
+  def txt_download
+    @book = Book.find(params[:id])
+    send_data @book.text, :filename => @book.title + '.txt'
+  end
 end
