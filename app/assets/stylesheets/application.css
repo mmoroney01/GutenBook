@@ -14,30 +14,22 @@
  *= require_self
  */
 
-#book-info {
-  display:inline-block;
+#cover-art-and-text-scroll-bar-and-book-info {
+  border: 1px solid black;
+  margin: auto;
+  padding: 1%;
 }
 
 #cover-art-and-book-info {
   float:left;
-  text-align:center;
-  width:33%;
-}
-
-#cover-art-and-text-scroll-bar-and-book-info {
-  margin-top:3%;
+  height:400px;
+  padding-right: 1%;
+  text-align: center;
 }
 
 #text-scroll-bar {
-  float:left;
   height:400px;
-  margin-bottom:4%;
   overflow-y:scroll;
-  width:67%;
-}
-
-#title-and-search-bar {
-  margin-left: 5.4%;
 }
 
 #author {
