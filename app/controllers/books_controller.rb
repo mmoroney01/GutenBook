@@ -3,18 +3,13 @@ class BooksController < ApplicationController
     Book.reindex
     if params[:query].present?
       @books = Book.search(params[:query], fields: [:title, :author, :searchable_text], match: :word_middle, page: params[:page])
-
-      respond_to do |f|
-        f.html { redirect_to root_path }
-        f.js { render "index.js.erb" }
-      end
-
     else
       @books = Book.all.page params[:page]
-      respond_to do |f|
-        f.html { redirect_to root_path }
-        f.js { render "index.js.erb" }
-      end
+    end
+    
+    respond_to do |f|
+      f.html { redirect_to root_path }
+      f.js { render "index.js.erb" }
     end
   end
 
