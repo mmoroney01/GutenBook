@@ -10,7 +10,9 @@
         <div id="contribution-date"><%= "Contributed on " + book.release_date.strftime("%m-%d-%Y").to_s %></div><br>
         <div id="download-buttons">
           <div id="kindle-download-button"><button type="button">Kindle Download</button></div>
-          <div id="txt-file-download-button"><button type="button">TXT Download</button></div>
+
+          <%= button_to "TXT Download", { action: "txt_download" }, method: "get", params: { id: book.id } %>
+
         </div>
       </div>
     </div>

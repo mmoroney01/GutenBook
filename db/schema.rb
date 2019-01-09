@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2019_01_03_184934) do
     t.datetime "release_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "presentable_text", default: [], array: true
+    t.string "text"
     t.string "searchable_text", default: [], array: true
-    t.string "sample_text", null: false
+    t.string "sample_text"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

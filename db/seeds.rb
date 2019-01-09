@@ -4,12 +4,15 @@ def book_attributes(txt)
     author = ""
     release_date = ""
     language = ""
-    presentable_text = []
+    text = ""
     sample_text = ""
     searchable_text = []
 
     #params of open may need to be different depending on source of txt files
+
     File.open(txt).each.each_with_index do |line, index|
+      text += line
+
       if line.match(/^Title: /)
         title = line.gsub(/Title: /, "").gsub(/\r\n/,'').titleize
       end
@@ -36,9 +39,6 @@ def book_attributes(txt)
           sample_text = ""
         end
 
-        #gets all text, unaltered
-        presentable_text << word
-
         #gets all text minus non-word/number characters, useful for searching
         searchable_text << word.gsub(/[^a-zA-Z\d]/, '')
       end
@@ -53,7 +53,7 @@ def book_attributes(txt)
       sample_text = title.downcase + sample_text.split(title.downcase)[1]
     end
 
-    return {title: title, author: author, release_date: release_date, language: language, presentable_text: presentable_text, searchable_text: searchable_text, sample_text: sample_text}
+    return {title: title, author: author, release_date: release_date, language: language, text: text, searchable_text: searchable_text, sample_text: sample_text}
 end
 
 txt = {"EurekaAProsePoem.txt" => "NoCover.jpg", "TheFallOfTheHouseOfUsher.txt" => "NoCover.jpg", "TheRaven.txt" => "TheRaven.jpg", "TheMasqueOfTheRedDeath.txt" => "NoCover.jpg", "TheCaskOfAmontillado.txt" => "NoCover.jpg"}
