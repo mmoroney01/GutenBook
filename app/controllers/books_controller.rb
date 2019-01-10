@@ -22,15 +22,15 @@ class BooksController < ApplicationController
     render "show"
   end
 
-  def kindle_download
-    @book = Book.find(params[:id])
-    mobifile = @book.mobi.download
+  def download
+    book = Book.find(params[:id])
 
-    send_data mobifile, filename: @book.title.gsub(" ", '') + '.mobi', type: 'mobi', disposition: 'attachment'
-  end
+    if params[:type] == 'txt'
+      send_data book.text, :filename => book.title.gsub(" ", '') + '.txt', type: 'txt', disposition: 'attachment'
+    end
 
-  def txt_download
-    @book = Book.find(params[:id])
-    send_data @book.text, :filename => @book.title.gsub(" ", '') + '.txt'
+    if params[:type] == 'mobi'
+      send_data book.mobi.download, filename: book.title.gsub(" ", '') + '.mobi', type: 'mobi', disposition: 'attachment'
+    end
   end
 end

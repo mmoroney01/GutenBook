@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :create, :show]
 
-  get '/txtdownload' => 'books#txt_download'
-  get '/kindledownload' => 'books#kindle_download'
+  get '/download' => 'books#download'
 end
