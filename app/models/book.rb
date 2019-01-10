@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   has_one_attached :cover_art
+  has_one_attached :mobi
 
   searchkick searchable: [:title, :author, :searchable_text], word_middle: [:title, :author, :searchable_text]
 
