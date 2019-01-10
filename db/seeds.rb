@@ -11,6 +11,7 @@ def book_attributes(txt)
     #params of open may need to be different depending on source of txt files
 
     File.open(txt).each.each_with_index do |line, index|
+      #gets all text as-is, useful for downloading as a .txt file
       text += line
 
       if line.match(/^Title: /)
@@ -56,10 +57,12 @@ def book_attributes(txt)
     return {title: title, author: author, release_date: release_date, language: language, text: text, searchable_text: searchable_text, sample_text: sample_text}
 end
 
-txt = {"EurekaAProsePoem.txt" => "NoCover.jpg", "TheFallOfTheHouseOfUsher.txt" => "NoCover.jpg", "TheRaven.txt" => "TheRaven.jpg", "TheMasqueOfTheRedDeath.txt" => "NoCover.jpg", "TheCaskOfAmontillado.txt" => "NoCover.jpg"}
+txt = [["TheRaven.txt", "TheRaven.mobi", "TheRaven.jpg"], ["EurekaAProsePoem.txt", "EurekaAProsePoem.mobi", "NoCover.jpg",], ["TheFallOfTheHouseOfUsher.txt", "TheFallOfTheHouseOfUsher.mobi", "NoCover.jpg"], ["TheMasqueOfTheRedDeath.txt", "TheMasqueOfTheRedDeath.mobi", "NoCover.jpg"], ["TheCaskOfAmontillado.txt", "TheCaskOfAmontillado.mobi", "NoCover.jpg"]]
 
-txt.each do |txt, img|
+txt.each do |txt, mobi, img|
   book_hash = book_attributes(txt)
   book = Book.create(book_hash)
+
   book.cover_art.attach(io: File.open(img), filename: img.to_s, content_type: "image/jpg")
+  book.mobi.attach(io: File.open(mobi), filename: mobi.to_s, content_type: "file/mobi")
 end

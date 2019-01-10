@@ -36,6 +36,10 @@ gem "bootsnap", '~> 1.1.2'
 gem 'jquery-rails'
 gem 'responders', '~> 2.0'
 
+gem 'kindlegen', '~> 2.9', '>= 2.9.6'
+gem 'asciidoctor'
+gem 'ptools', '~> 1.3', '>= 1.3.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

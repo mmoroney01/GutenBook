@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_184934) do
+ActiveRecord::Schema.define(version: 2019_01_10_175002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,9 +44,20 @@ ActiveRecord::Schema.define(version: 2019_01_03_184934) do
     t.datetime "release_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "text"
-    t.string "searchable_text", default: [], array: true
-    t.string "sample_text"
+    t.string "text", null: false
+    t.string "searchable_text", default: [], null: false, array: true
+    t.string "sample_text", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.uuid "ebook_id", null: false
+    t.integer "position", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["ebook_id"], name: "index_sections_on_ebook_id"
+    t.index ["position"], name: "index_sections_on_position"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

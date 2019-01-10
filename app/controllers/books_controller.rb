@@ -1,3 +1,4 @@
+
 class BooksController < ApplicationController
   def index
     Book.reindex
@@ -21,8 +22,15 @@ class BooksController < ApplicationController
     render "show"
   end
 
+  def kindle_download
+    @book = Book.find(params[:id])
+    mobifile = @book.mobi.download
+
+    send_data mobifile, filename: @book.title.gsub(" ", '') + '.mobi', type: 'mobi', disposition: 'attachment'
+  end
+
   def txt_download
     @book = Book.find(params[:id])
-    send_data @book.text, :filename => @book.title + '.txt'
+    send_data @book.text, :filename => @book.title.gsub(" ", '') + '.txt'
   end
 end
